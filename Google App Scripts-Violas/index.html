@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Libre+Barcode+128&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<?!= include("style-css"); ?> <!-- Links to css stylesheet-->
+
+    <title>POS System</title>
+</head>
+<body>
+    <header>
+        <h1>POS System</h1>
+    </header>
+
+
+    <main class="main-container flex-row">
+        <section class="order flex-column">
+
+            <article class="reciept flex-column">
+                <div class="company-info flex-column">
+                    <p id="company-name">Violas.Co</p>
+                    <p id="company-address">Mixture of Cute and Ugly</p>
+                   <p id="company-city"></p>
+                   <p id="company-phone"></p>
+                   <p id="invoice-number"></p>
+
+                </div>
+                <div class="reciept-details">
+                    <table class="details-detail">
+                        <thead>
+                            <tr>
+                                <td class="dotted-border" colspan="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="empty-border" colspan="5"></td>
+                            </tr>
+                            <tr>
+                                <th class="description">Description</th>
+                                <th class="quantity">Qty</th>
+                                <th class="price">Price</th>
+                                <th class="subtotal">Sub</th>
+                                <th class="delete">Del</th>
+                            </tr>
+                            <tr>
+                                <td class="dotted-border" colspan="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="empty-border" colspan="5"></td>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reciept-details">
+                            <!-------All Reciept Items go here------>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="reciept-summary">
+                    <table class="summary-table">
+                        <tbody class="summary-table" id="total-summary">
+                            <tr>
+                                <td class="dotted-border" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="empty-border" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td id="subtotal-summary">$0.00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Tax:</td>
+                                <td id="subtotal-tax">$0.00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Grand Total:</td>
+                                <td id="grandtotal-summary">$0.00</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tbody class="summary-table" id="payment-summary">
+                            <tr>
+                                <td>Amt Paid:</td>
+                                <td id="amount-paid">$0.00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td id="tip-change-title">Change:</td>
+                                <td id="tip-change-amount">$0.00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Payment Type:</td>
+                                <td id="payment-type"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="dotted-border" colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td class="empty-border" colspan="3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="reciept-footer flex-column">
+                    <p id="reciept-message">Thanks For Your Buisness</p>
+                    <p id="barcode">Barcode</p>
+                </div>
+            </article>
+            <div class="toolbar flex-row">
+                <i class="fas fa-money-bill-wave toolbar-icon paypad-show" data-payment-type='{"type":"cash"}'></i>
+                <i class="fas fa-credit-card toolbar-icon paypad-show" data-payment-type='{"type":"credit"}'></i>
+                <i class="fas fa-trash-alt toolbar-icon"id="clear-order"></i>
+            </div>
+
+        </section>
+        <section class="menu-payment grid">
+
+            <div class="menu flex-row" id="menu">
+                <!---Menu items Go here--->
+            </div>
+
+            <div class="payment grid" id="payment-overlay">
+                <div class="paypad grid" id="paypad">
+                    <button class="paypad-button number"data-id="7">7</button>
+                    <button class="paypad-button number"data-id="8">8</button>
+                    <button class="paypad-button number"data-id="9">9</button>
+                    <button class="paypad-button number"data-id="4">4</button>
+                    <button class="paypad-button number"data-id="5">5</button>
+                    <button class="paypad-button number"data-id="6">6</button>
+                    <button class="paypad-button number"data-id="1">1</button>
+                    <button class="paypad-button number"data-id="2">2</button>
+                    <button class="paypad-button number"data-id="3">3</button>
+                    <button class="paypad-button number"data-id="0">0</button>
+
+                    <button class="paypad-button "data-id="back">Back</button>
+                    <button class="paypad-button "data-id="clear">Clear</button>
+                    <button class="paypad-button span3-col" id="close-sale" data-id="close-sale">Close Sale</button>
+
+                    
+                    
+                </div>
+                <div class="close-paypad flex">
+                    <i class="fas fa-times close-icon paypad-close" id="paypad-close"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+<?!=include("script-js")?> <!-- Links to javascript stylesheet-->
+</body>
+</html>
